@@ -104,7 +104,7 @@ export class JobOffersService {
     }
 
     delete(id: number) {
-        const index = this.jobOffers.findIndex((job) => job.id === id);
+        const index = this.jobOffers.findIndex((job) => job.id == id);
         this.jobOffers.splice(index, 1);
     }
 
