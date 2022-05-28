@@ -1,10 +1,10 @@
-export enum WorkScheduleTypes {
-   FullTime = 'Full-Time',
-   PartTime = 'Part-Time',
-   Flexible = 'Flexible' | 'Flexible Hours',
-   Other = 'Other',
-}
+export type WorkScheduleType =
+   'Full-Time'
+   | 'Part-Time'
+   | 'Flexible' | 'Flexible Hours'
+   | 'Other';
+
 
 export interface IWorkScheduleType {
-    param: WorkScheduleTypes
+   workScheduleType: WorkScheduleType
 }
