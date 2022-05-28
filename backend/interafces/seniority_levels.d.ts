@@ -8,6 +8,7 @@ export type seniority =
    | "Especialista"
    | "Estagiário"
    | "Outro"
+   | "Mestre"
 
 export interface ISeniorityLevel {
    seniority: seniority
