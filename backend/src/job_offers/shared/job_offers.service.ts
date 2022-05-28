@@ -75,7 +75,7 @@ export class JobOffersService {
     }
 
     getById(id: number) {
-        const jobOffer = this.jobOffers.find((job) => job.id === id);
+        const jobOffer = this.jobOffers.find((job) => job.id == id);
         return jobOffer;
     }
 
