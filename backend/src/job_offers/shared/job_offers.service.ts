@@ -90,7 +90,7 @@ export class JobOffersService {
     }
 
     update(jobOffer: JobOffer) {
-        const jobOfferFound = this.getById(jobOffer.id);
+        let jobOfferFound = this.getById(jobOffer.id);
         if (jobOfferFound) {
             jobOfferFound.title = jobOffer.title;
             jobOfferFound.seniority = jobOffer.seniority;

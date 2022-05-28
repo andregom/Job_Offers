@@ -24,13 +24,13 @@ export class JobOffersController {
         return this.jobOfferService.create(JobOffer);
     }
 
-    @Put()
+    @Put(':id')
     async update(@Param('id') id: number, @Body() JobOffer: JobOffer): Promise<JobOffer> {
         JobOffer.id = id;
         return this.jobOfferService.update(JobOffer);
     }
 
-    @Delete()
+    @Delete(':id')
     async delete(@Param('id') id: number) {
         this.jobOfferService.delete(id);
     }
