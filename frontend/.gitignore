@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/root/node_modules
+/root/card/node_modules
+/root/navbar/node_modules
 /.pnp
 .pnp.js
 
