@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { JobOffer } from './job_offers';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 
 @Injectable()
 export class JobOffersService {
-    jobOffers: JobOffer[] = [
+    /* jobOffers: JobOffer[] = [
         {
             id: 1,
             title: "Especialista em Engenharia de dados",
@@ -68,44 +70,30 @@ export class JobOffersService {
             workScheduleType: "Full-Time",
             openSince: new Date()
         },
-    ];
+    ]; */
 
-    getAll() {
-        return this.jobOffers
+    constructor(@InjectModel('JobOffer') private readonly JobOfferModel: Model<JobOffer> ) {  }
+
+    async getAll() {
+        return await this.JobOfferModel.find().exec();
     }
 
-    getById(id: number) {
-        const jobOffer = this.jobOffers.find((job) => job.id == id);
-        return jobOffer;
+    async getById(id: string) {
+        return await this.JobOfferModel.findById(id).exec();
+
     }
 
-    create(jobOffer: JobOffer) {
-        let lastId = 0;
-        lastId = this.jobOffers[this.jobOffers.length - 1].id;
-        
-        jobOffer.id = lastId + 1;
-        this.jobOffers.push(jobOffer);
-
-        return jobOffer;
+    async create(jobOffer: JobOffer) {
+        const createdJobOffer = new this.JobOfferModel(jobOffer);
+        return await createdJobOffer.save();
     }
 
-    update(jobOffer: JobOffer) {
-        let jobOfferFound = this.getById(jobOffer.id);
-        if (jobOfferFound) {
-            jobOfferFound.title = jobOffer.title;
-            jobOfferFound.seniority = jobOffer.seniority;
-            jobOfferFound.status = jobOffer.status;
-            jobOfferFound.localtion = jobOffer.localtion;
-            jobOfferFound.workScheduleType = jobOffer.workScheduleType;
-            jobOfferFound.openSince = jobOffer.openSince;
-        }
-
-        return jobOfferFound;
+    async update(id: string, jobOffer: JobOffer) {
+        return await this.JobOfferModel.findOneAndUpdate({ _id: id }, jobOffer).exec();
     }
 
-    delete(id: number) {
-        const index = this.jobOffers.findIndex((job) => job.id == id);
-        this.jobOffers.splice(index, 1);
+    async delete(id: string) {
+        return await this.JobOfferModel.deleteOne({ _id: id }).exec();
     }
 
 }
