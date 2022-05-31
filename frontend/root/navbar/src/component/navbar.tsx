@@ -1,3 +1,5 @@
+import * as singlSpa from 'single-spa';
+
 import {
   AppBar,
   Toolbar,
@@ -19,7 +21,7 @@ import griaLogoSVG from "../assets/gria-logo-topbar.f3a2419c.svg";
 
 export default function Header() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down(900));
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const displayDesktop = () => {
