@@ -1,5 +1,3 @@
-import * as singlSpa from 'single-spa';
-
 import {
   AppBar,
   Toolbar,
@@ -17,7 +15,7 @@ import "./styles.css";
 
 import DrawerComponent from "./drawer";
 
-import griaLogoSVG from "../assets/gria-logo-topbar.f3a2419c.svg";
+import griaLogoSVG from "../../assets/gria-logo-topbar.f3a2419c.svg";
 
 export default function Header() {
   const theme = useTheme();
