@@ -7,7 +7,7 @@ import BasicCard from "../components/Card";
 
 function ApplicationRouter() {
     return (
-        <BrowserRouter>
+        <>
             <Navbar />
             <Grid item xs={12}
                 md={10}
@@ -16,15 +16,15 @@ function ApplicationRouter() {
                 style={{ margin: "auto" }}>
                 <Routes>
                     <Route path="/" element={
-                        <Navigate to="/home" />
+                        <Navigate to="/oportunidades" />
                     } />
                     {/*<Route path="/login" component={LoginPage}/>*/}
                     {/* <Route path="/accounts" element={AccountDisplay}/>
                     <Route path="/stocks" element={StocksDisplay}/> */}
-                    <Route path='/home' element={<BasicCard />} />
+                    <Route path='/oportunidades' element={<BasicCard />} />
                 </Routes>
             </Grid>
-        </BrowserRouter>
+        </>
     )
 }
 
