@@ -27,12 +27,12 @@ export default function AltCard() {
     return (
         <Container maxWidth="sm">
             <div className="cards-container">
-                {/* <Grid
+                <Grid
                     container
                     spacing={2}
                     direction="row"
                     alignItems="flex-start"
-                > */}
+                >
                     {data.map(elem => (
                         <Grid item xs={12} sm={6} md={3} key={data.indexOf(elem)}>
                             <Card>
@@ -48,7 +48,7 @@ export default function AltCard() {
                             </Card>
                         </Grid>
                     ))}
-                {/* </Grid> */}
+                </Grid>
             </div>
         </Container>
     )
