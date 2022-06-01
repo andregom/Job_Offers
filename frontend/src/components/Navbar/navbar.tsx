@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -6,14 +8,13 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  Link,
   useMediaQuery,
   useTheme
 } from "@material-ui/core";
-import React, { useState } from "react";
 import "./styles.css";
 
 import DrawerComponent from "./drawer";
+import AltCard from "../AltCard";
 
 import griaLogoSVG from "../../assets/gria-logo-topbar.f3a2419c.svg";
 
@@ -32,8 +33,8 @@ export default function Header() {
           <DrawerComponent />
         ) : (
           <div className="nav-link-container">
-            <Link className="nav-link">Vagas</Link>
-            <Link className="nav-link">LOGIN</Link>
+            <Link to="/vagas" className="nav-link" >Vagas</Link>
+            <Link to="/login" className="nav-link">LOGIN</Link>
           </div>
         )}
       </Toolbar>
