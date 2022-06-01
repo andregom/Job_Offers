@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  display: flex;
+  display: border;
   align-items: center;
   justify-content: center;
 }

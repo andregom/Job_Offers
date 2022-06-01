@@ -11,7 +11,7 @@ function ApplicationRouter() {
         <>
             <Navbar />
             <Grid container
-                style={{width: "100vh", height: "100vw",  display: "flex-box", flexDirection: "row" }}>
+                style={{ width: "100vw", height: "100vh",  display: "flex-box", flexDirection: "row", paddingTop: "70px"  }}>
                 <Routes>
                     <Route path="/" element={
                         <Navigate to="/oportunidades" />
