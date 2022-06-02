@@ -27,7 +27,9 @@ export default function Header() {
     return (
       <Toolbar className="toolbar">
         <Typography>
-          <img className="appbar-logo" src={griaLogoSVG} alt="logo gria" />
+          <Link to="/">
+            <img className="appbar-logo" src={griaLogoSVG} alt="logo gria" />
+          </Link>
         </Typography>
         {isMobile ? (
           <DrawerComponent />
