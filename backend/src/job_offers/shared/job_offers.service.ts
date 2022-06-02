@@ -9,7 +9,8 @@ export class JobOffersService {
     /* jobOffers: JobOffer[] = [
         {
             id: 1,
-            title: "Especialista em Engenharia de dados",
+            enterprise: "",
+            position: "Especialista em Engenharia de dados",
             seniority: "Especialista",
             status: "Open",
             localtion: "Brasília, Distrito Federal, Brasil",
@@ -18,7 +19,8 @@ export class JobOffersService {
         },
         {
             id: 2,
-            title: "Recepção",
+            enterprise: "",
+            position: "Recepção",
             seniority: "Júnior",
             status: "Open",
             localtion: "São Paulo, São Paulo, Brasil",
@@ -27,7 +29,8 @@ export class JobOffersService {
         },
         {
             id: 3,
-            title: "Desenvolvedor FullStack",
+            enterprise: "",
+            position: "Desenvolvedor FullStack",
             seniority: "Pleno",
             status: "Open",
             localtion: "Brasília, Distrito Federal, Brasil",
@@ -36,7 +39,8 @@ export class JobOffersService {
         },
         {
             id: 4,
-            title: "Vendedor",
+            enterprise: "",
+            position: "Vendedor",
             seniority: "Júnior",
             status: "Open",
             localtion: "Rio De Janeiro, Rio de Janeiro, Brasil",
@@ -45,7 +49,8 @@ export class JobOffersService {
         },
         {
             id: 5,
-            title: "Operador de Call Center",
+            enterprise: "",
+            position: "Operador de Call Center",
             seniority: "Operacional",
             status: "Paused",
             localtion: "Pernambuco, Recife, Brasil",
@@ -54,7 +59,8 @@ export class JobOffersService {
         },
         {
             id: 6,
-            title: "Administrador de dados",
+            enterprise: "",
+            position: "Administrador de dados",
             seniority: "Sênior",
             status: "Open",
             localtion: "Remoto",
@@ -63,7 +69,8 @@ export class JobOffersService {
         },
         {
             id: 7,
-            title: "Arquiteto de Software",
+            enterprise: "",
+            position: "Arquiteto de Software",
             seniority: "Mestre",
             status: "Open",
             localtion: "Remoto",

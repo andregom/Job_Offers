@@ -6,7 +6,7 @@ export interface IJobOffer extends ISeniorityLevel, IWorkScheduleType {
     id: string;
     imgLogo?: File;
     enterprise?: string;
-    title: string;
+    position: string;
     seniority: seniority;
     status: status;
     localtion: string;

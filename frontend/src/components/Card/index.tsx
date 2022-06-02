@@ -21,16 +21,7 @@ const bull = (
 
 export default function BasicCard() {
     return (
-        <Card className='card-item' style={{
-            minWidth: 400, 
-            width: "266px",
-            border: "0.5px solid #C4C4C4",
-            height: "273px",
-            padding: "0.875rem 1.25rem",
-            overflow: "hidden",
-            borderRadius: "6px",
-            backgroundColor: "#fff",
-        }}>
+        <Card className='card-item'>
             <CardContent>
                 <Typography style={{ fontSize: 14 }} gutterBottom>
                     Word of the Day

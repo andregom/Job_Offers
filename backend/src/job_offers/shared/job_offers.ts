@@ -9,7 +9,9 @@ export class JobOffer
     extends Document
     implements IJobOffer {
     id: string;
-    title: string;
+    imgLogo?: File;
+    enterprise?: string;
+    position: string;
     seniority: seniority;
     status: status;
     localtion: string;
@@ -17,10 +19,10 @@ export class JobOffer
     openSince: Date;
     details?: string;
 
-    constructor(id: string = "", title: string = "", seniority: seniority = "Júnior", status: status = "Open", localtion: string = "", workScheduleType: WorkScheduleType = "Full-Time", openSince: Date = new Date()) {
+    constructor(id: string = "", position: string = "", seniority: seniority = "Júnior", status: status = "Open", localtion: string = "", workScheduleType: WorkScheduleType = "Full-Time", openSince: Date = new Date()) {
         super();
         this.id = id;
-        this.title = title;
+        this.position = position;
         this.seniority = seniority;
         this.status = status;
         this.localtion = localtion;
