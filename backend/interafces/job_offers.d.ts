@@ -5,6 +5,8 @@ import { status } from "interafces/status";
 export interface IJobOffer
     implements ISeniorityLevel, IWorkScheduleType {
     id: string;
+    imgLogo?: File;
+    enterprise?: string;
     title: string;
     seniority: ISeniority;
     status: IStatus;
