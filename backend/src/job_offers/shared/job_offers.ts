@@ -1,12 +1,13 @@
 import { Document } from "mongoose";
 
-import { ISeniorityLevel, seniority } from "interafces/seniority_levels";
-import { IWorkScheduleType, WorkScheduleType } from "interafces/work_schedule_type";
+import { seniority } from "interafces/seniority_levels";
+import { WorkScheduleType } from "interafces/work_schedule_type";
+import { IJobOffer } from "interafces/job_offers";
 import { status } from "interafces/status";
 
 export class JobOffer
     extends Document
-    implements ISeniorityLevel, IWorkScheduleType {
+    implements IJobOffer {
     id: string;
     title: string;
     seniority: seniority;
