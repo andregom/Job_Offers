@@ -1,7 +1,7 @@
-import { JobOffers } from './job_offers';
+import { JobOffer } from './job_offers';
 
 describe('JobOffers', () => {
   it('should be defined', () => {
-    expect(new JobOffers()).toBeDefined();
+    expect(new JobOffer()).toBeDefined();
   });
 });

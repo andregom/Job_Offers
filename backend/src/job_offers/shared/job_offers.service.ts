@@ -6,9 +6,9 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class JobOffersService {
-    /* jobOffers: JobOffer[] = [
+/*     jobOffers: JobOffer[] = [
         {
-            id: 1,
+            id: "1",
             enterprise: "",
             position: "Especialista em Engenharia de dados",
             seniority: "Especialista",
@@ -18,7 +18,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 2,
+            id: "2",
             enterprise: "",
             position: "Recepção",
             seniority: "Júnior",
@@ -28,7 +28,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 3,
+            id: "3",
             enterprise: "",
             position: "Desenvolvedor FullStack",
             seniority: "Pleno",
@@ -38,7 +38,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 4,
+            id: "4",
             enterprise: "",
             position: "Vendedor",
             seniority: "Júnior",
@@ -48,7 +48,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 5,
+            id: "5",
             enterprise: "",
             position: "Operador de Call Center",
             seniority: "Operacional",
@@ -58,7 +58,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 6,
+            id: "6",
             enterprise: "",
             position: "Administrador de dados",
             seniority: "Sênior",
@@ -68,7 +68,7 @@ export class JobOffersService {
             openSince: new Date()
         },
         {
-            id: 7,
+            id: "7",
             enterprise: "",
             position: "Arquiteto de Software",
             seniority: "Mestre",

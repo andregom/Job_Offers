@@ -1,4 +1,10 @@
+export enum Status {
+   Open = 'Open',
+   Closed = 'Closed',
+   Paused = 'Paused'
+}
+
 export type status =
-   'Open'
+      'Open'
    | 'Closed'
    | 'Paused';

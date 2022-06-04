@@ -1,6 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Logger, Param, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { JobOffer } from './shared/job_offers';
 import { JobOffersService } from './shared/job_offers.service';
+
+import { SeniorityValues } from "../../../shared/interafces/enums/seniority_values";
 
 @Controller('job-offers')
 export class JobOffersController {
@@ -11,6 +14,9 @@ export class JobOffersController {
 
     @Get()
     async getAll(): Promise<JobOffer[]> {
+        const jobOffer = new JobOffer();
+        console.log(jobOffer);
+        console.log(SeniorityValues);
         return this.jobOfferService.getAll();
     }
 
@@ -18,22 +24,24 @@ export class JobOffersController {
     async getById(@Param('id') id: string): Promise<JobOffer> {
         return this.jobOfferService.getById(id);
     }
-    
+
     @Post()
-    async create(@Body() JobOffer: JobOffer): Promise<JobOffer> {
-        return this.jobOfferService.create(JobOffer);
+    @UseInterceptors(FileInterceptor('img'))
+    async create(@UploadedFile() imgLogoFile, @Body() jobOfferJSONValues: JobOffer): Promise<JobOffer> {
+        jobOfferJSONValues.imgLogo = imgLogoFile;
+        const jobOffer: JobOffer = JSON.parse(JSON.stringify(jobOfferJSONValues))
+        console.log(jobOffer);
+        return this.jobOfferService.create(jobOfferJSONValues);
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() RecivedJobOffer: JobOffer): Promise<JobOffer> {
-        RecivedJobOffer.id = id;
-        let jobOffer = new JobOffer();
+    async update(@Param('id') id: string, @Body() jobOfferWithUpdatedValues: JobOffer): Promise<JobOffer> {
+        jobOfferWithUpdatedValues.id = id;
         try {
-            jobOffer = await this.jobOfferService.update(id, RecivedJobOffer);
+            return await this.jobOfferService.update(id, jobOfferWithUpdatedValues);
         } catch (error) {
             console.log(error);
         }
-        return jobOffer;
     }
 
     @Delete(':id')
