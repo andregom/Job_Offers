@@ -27,13 +27,11 @@ export class JobOffersController {
     @Put(':id')
     async update(@Param('id') id: string, @Body() RecivedJobOffer: JobOffer): Promise<JobOffer> {
         RecivedJobOffer.id = id;
-        let jobOffer = new JobOffer();
         try {
-            jobOffer = await this.jobOfferService.update(id, RecivedJobOffer);
+            return await this.jobOfferService.update(id, RecivedJobOffer);
         } catch (error) {
             console.log(error);
         }
-        return jobOffer;
     }
 
     @Delete(':id')
