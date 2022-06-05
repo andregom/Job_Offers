@@ -1,9 +1,9 @@
 import { Document } from "mongoose";
 
-import { ISeniorityLevel, seniority } from "../../../../shared/interafces/seniority_levels";
-import { IWorkScheduleType, workScheduleType } from "../../../../shared/interafces/work_schedule_type";
-import { IJobOffer } from "../../../../shared/interafces/job_offers";
-import { status } from "../../../../shared/interafces/status";
+import { ISeniorityLevel, seniority } from "../../../../shared/interafces/job_offers/seniority_levels";
+import { IWorkScheduleType, workScheduleType } from "../../../../shared/interafces/job_offers/work_schedule_type";
+import { IJobOffer } from "../../../../shared/interafces/job_offers/job_offers";
+import { status } from "../../../../shared/interafces/job_offers/status";
 
 export class JobOffer
     implements IJobOffer {

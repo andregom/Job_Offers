@@ -6,13 +6,15 @@ import { AppService } from './app.service';
 import { JobOffersModule } from './job_offers/job_offers.module';
 
 import { MongooseModule } from '@nestjs/mongoose'
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     AuthModule,
     MongooseModule.forRoot('mongodb+srv://andregom:FS0eqGDM1ED1Suas@cluster0.qoliich.mongodb.net/?retryWrites=true&w=majority'),
     JobOffersModule,
-    AuthModule
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [

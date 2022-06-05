@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import { IJobOffer } from "../../../../shared/interafces/job_offers";
+import { IJobOffer } from "../../../../shared/interafces/job_offers/job_offers";
 
 const SENIORITY_POSSIBLE_VALUES = [
     "Júnior", "Pleno", "Sênior", "Operacional", "Técnico", "Trainee", "Especialista", "Estagiário", "Outro"
