@@ -1,3 +1,5 @@
+import { AuthService } from './auth/shared/auth.service';
+import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -7,10 +9,15 @@ import { MongooseModule } from '@nestjs/mongoose'
 
 @Module({
   imports: [
+    AuthModule,
     MongooseModule.forRoot('mongodb+srv://andregom:FS0eqGDM1ED1Suas@cluster0.qoliich.mongodb.net/?retryWrites=true&w=majority'),
-    JobOffersModule
+    JobOffersModule,
+    AuthModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AuthService,
+    AppService
+  ],
 })
-export class AppModule {}
+export class AppModule { }
