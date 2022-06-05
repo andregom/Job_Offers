@@ -17,7 +17,7 @@ export class UserService {
     }
 
     async getByEmail(email: string) {
-        return await this.UserModel.findById(email).exec();
+        return await this.UserModel.findOne({ email }).exec();
     }
 
     async create(User: User) {

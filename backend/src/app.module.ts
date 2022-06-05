@@ -14,7 +14,7 @@ import { UsersModule } from './users/users.module';
     MongooseModule.forRoot('mongodb+srv://andregom:FS0eqGDM1ED1Suas@cluster0.qoliich.mongodb.net/?retryWrites=true&w=majority'),
     JobOffersModule,
     AuthModule,
-    UsersModule
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [
