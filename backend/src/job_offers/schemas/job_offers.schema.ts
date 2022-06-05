@@ -1,17 +1,24 @@
 import * as mongoose from 'mongoose';
 import { IJobOffer } from "../../../../shared/interafces/job_offers";
-import { seniority } from "../../../../shared/interafces/seniority_levels";
-import { SeniorityValues } from "../../../../shared/interafces/enums/seniority_values";
-import { WorkScheduleType, workScheduleType } from "../../../../shared/interafces/work_schedule_type";
-import { Status, status } from "../../../../shared/interafces/status";
 
-interface IJobOfferBackend 
+const SENIORITY_POSSIBLE_VALUES = [
+    "Júnior", "Pleno", "Sênior", "Operacional", "Técnico", "Trainee", "Especialista", "Estagiário", "Outro"
+] as const;
+
+const WORK_SCHEDULE_POSSIBLE_VALUES = [
+    'Full-Time', 'Part-Time', 'Flexible', 'Flexible Hours', 'Other',
+] as const;
+
+const STATUS_POSSIBLE_VALUES = [
+    'Open', 'Closed', 'Paused'
+] as const;
+
+interface IJobOfferBackend
     extends IJobOffer, mongoose.Document {
-        id: string
+    id: string
 }
 
 export const JobOfferSchema = new mongoose.Schema({
-    id: String,
     imgLogo: {
         fieldname: String,
         originalname: String,
@@ -23,10 +30,10 @@ export const JobOfferSchema = new mongoose.Schema({
     },
     enterprise: { type: String, required: true },
     position: { type: String, required: true },
-    seniority: { type: String, enum: SeniorityValues, required: true },
-    status: { type: String, required: true },
+    seniority: { type: String, enum: SENIORITY_POSSIBLE_VALUES, required: true, default: SENIORITY_POSSIBLE_VALUES[0] },
+    status: { type: String, enum: STATUS_POSSIBLE_VALUES, required: true, default: STATUS_POSSIBLE_VALUES[0] },
     localtion: { type: String, required: true },
-    workScheduleType: { type: String, required: true },
+    workScheduleType: { type: String, enum: WORK_SCHEDULE_POSSIBLE_VALUES, required: true, default: WORK_SCHEDULE_POSSIBLE_VALUES[0] },
     openSince: { type: Date, required: true },
     details: { type: String, required: false },
 });

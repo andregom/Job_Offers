@@ -3,7 +3,6 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { JobOffer } from './shared/job_offers';
 import { JobOffersService } from './shared/job_offers.service';
 
-import { SeniorityValues } from "../../../shared/interafces/enums/seniority_values";
 
 @Controller('job-offers')
 export class JobOffersController {
@@ -14,9 +13,6 @@ export class JobOffersController {
 
     @Get()
     async getAll(): Promise<JobOffer[]> {
-        const jobOffer = new JobOffer();
-        console.log(jobOffer);
-        console.log(SeniorityValues);
         return this.jobOfferService.getAll();
     }
 
@@ -29,8 +25,6 @@ export class JobOffersController {
     @UseInterceptors(FileInterceptor('img'))
     async create(@UploadedFile() imgLogoFile, @Body() jobOfferJSONValues: JobOffer): Promise<JobOffer> {
         jobOfferJSONValues.imgLogo = imgLogoFile;
-        const jobOffer: JobOffer = JSON.parse(JSON.stringify(jobOfferJSONValues))
-        console.log(jobOffer);
         return this.jobOfferService.create(jobOfferJSONValues);
     }
 
@@ -47,5 +41,10 @@ export class JobOffersController {
     @Delete(':id')
     async delete(@Param('id') id: string) {
         this.jobOfferService.delete(id);
+    }
+
+    @Delete()
+    async deleteMany() {
+        this.jobOfferService.deleteMany();
     }
 }
