@@ -19,7 +19,8 @@ import { UsersModule } from './users/users.module';
   controllers: [AppController],
   providers: [
     AuthService,
-    AppService
+    AppService,
+    JwtService
   ],
 })
 export class AppModule { }
