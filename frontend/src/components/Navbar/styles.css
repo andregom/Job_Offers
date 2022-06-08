@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 24px 0px 0px !important;
+  display: block;
+  justify-content: center;
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  padding: 18px;
+}
+
+.appbar-logo {
+  margin: auto;
+}
+
+.toolbar {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1250px;
+  width: 100%;
+}
+
+.gria-appbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  background-image: linear-gradient(96.61deg, #920d65 0.44%, #d81c98 99.14%);
+  padding: 0px 64px !important;
+}
