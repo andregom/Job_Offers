@@ -14,7 +14,6 @@ import {
 import "./styles.css";
 
 import DrawerComponent from "./drawer";
-import AltCard from "../AltCard";
 
 import griaLogoSVG from "../../assets/gria-logo-topbar.f3a2419c.svg";
 

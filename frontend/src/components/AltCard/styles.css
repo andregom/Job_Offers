@@ -10,10 +10,21 @@
     vertical-align: middle;
 }
 
+.profile-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+}
+
 .card-item {
     width: 266px !important;
     border: 0.5px solid #C4C4C4;
-    height: 273px;
+    height: 300px;
     padding: 0.875rem 1.25rem;
     overflow: hidden;
     border-radius: 6px !important;

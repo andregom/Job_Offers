@@ -15,6 +15,8 @@ import {
 
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
+import profileImg from "../../assets/G4F_smaller_size.jpeg";
+
 import { JobOffer } from "../../../class_objects/job_offers"
 
 import './styles.css';
@@ -105,7 +107,7 @@ export default function AltCard() {
             id: "7",
             enterprise: "",
             position: "Arquiteto de Software",
-            seniority: "Mestre",
+            seniority: "Pleno",
             status: "Open",
             localtion: "Remoto",
             workScheduleType: "Full-Time",
@@ -132,15 +134,19 @@ export default function AltCard() {
                         {jobOffers.map(jobOffer => (
                             <Grid item key={ jobOffers.indexOf(jobOffer)}>
                                 <Card className='card-item'>
-                                    <CardHeader
-                                        title={jobOffer.enterprise}
-                                        subheader={`${jobOffer.position}`}
-                                    />
+                                    <div className='profile-header'>
+                                        <img className="profile-img" src={profileImg} alt="logo gria" />
+                                        <CardHeader
+                                            
+                                            title={jobOffer.enterprise}
+                                            subheader={`${jobOffer.position}`}
+                                        />
+                                    </div>
                                     <CardContent>
-                                        <Typography style={{ fontSize: 14 }} gutterBottom>
+                                        <Typography style={{ fontSize: 12 }} gutterBottom>
                                             {jobOffer.seniority}
                                         </Typography>
-                                        <Typography variant="h5" component="div">
+                                        <Typography variant="h6" component="div">
                                             {jobOffer.workScheduleType}
                                         </Typography>
                                         <Typography>
