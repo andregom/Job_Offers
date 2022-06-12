@@ -1,4 +1,5 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import monent from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -20,6 +21,7 @@ import profileImg from "../../assets/G4F_smaller_size.jpeg";
 import { JobOffer } from "../../../class_objects/job_offers"
 
 import './styles.css';
+import axios from 'axios';
 
 const theme = createTheme({
     breakpoints: {
@@ -41,8 +43,9 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function AltCard() {
-    const classes = useStyles()
-    const jobOffers: JobOffer[] = [
+    const classes = useStyles();
+
+    /* const jobOffers: JobOffer[] = [
         {
             id: "1",
             enterprise: "",
@@ -113,13 +116,14 @@ export default function AltCard() {
             workScheduleType: "Full-Time",
             openSince: new Date("2012-04-23T17:45:00.511Z")
         },
-    ];
-    const data = [
-        { quarter: 1, earnings: 13000 },
-        { quarter: 2, earnings: 16500 },
-        { quarter: 3, earnings: 14250 },
-        { quarter: 4, earnings: 19000 }
-    ]
+    ]; */
+    
+    const { data, isFetching } = useQuery<JobOffer[]>('job_offers', async () => {
+        const response = await axios.get('http://localhost:3000/job-offers/');
+
+        return response.data;
+    });
+
     return (
         <Container className='cards-container-wrapper'>
             <div className="cards-container">
@@ -131,8 +135,9 @@ export default function AltCard() {
                         direction="row"
                         alignItems="center"
                     >
-                        {jobOffers.map(jobOffer => (
-                            <Grid item key={ jobOffers.indexOf(jobOffer)}>
+                        { isFetching && <p>Carregando...</p> }
+                        {data?.map((jobOffer: JobOffer) => (
+                            <Grid item key={ data.indexOf(jobOffer)}>
                                 <Card className='card-item'>
                                     <div className='profile-header'>
                                         <img className="profile-img" src={profileImg} alt="logo gria" />
