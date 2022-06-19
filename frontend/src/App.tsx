@@ -6,9 +6,7 @@ import ApplicationRouter from "./routing/ApplicationRouter";
 
 function App() {
   return (
-    <>
       <ApplicationRouter />
-    </>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import monent from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
@@ -118,11 +118,7 @@ export default function AltCard() {
         },
     ]; */
     
-    const { data, isFetching } = useQuery<JobOffer[]>('job_offers', async () => {
-        const response = await axios.get('http://localhost:3000/job-offers/');
-
-        return response.data;
-    });
+    const { data, isFetching } = useQuery<JobOffer[]>('job_offers');
 
     return (
         <Container className='cards-container-wrapper'>
