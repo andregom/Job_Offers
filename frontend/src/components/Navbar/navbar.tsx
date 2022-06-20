@@ -35,7 +35,7 @@ export default function Header() {
         ) : (
           <div className="nav-link-container">
             <Link to="/vagas" className="nav-link" >Vagas</Link>
-            <Link to="/login" className="nav-link">LOGIN</Link>
+            <Link to="/user-login" className="nav-link">LOGIN</Link>
           </div>
         )}
       </Toolbar>

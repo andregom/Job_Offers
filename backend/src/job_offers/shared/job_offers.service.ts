@@ -104,7 +104,7 @@ export class JobOffersService {
     }
 
     async deleteMany() {
-        return await this.JobOfferModel.deleteMany({ position: undefined }).exec();
+        return await this.JobOfferModel.deleteMany({ seniority: 0 }).exec();
     }
 
 }

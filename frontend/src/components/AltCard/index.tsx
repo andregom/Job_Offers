@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
+
 import { useQuery } from 'react-query';
+import { axiosPrivate } from "../../api/axios";
+
+import { Buffer } from 'buffer';
 import monent from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -21,7 +25,7 @@ import profileImg from "../../assets/G4F_smaller_size.jpeg";
 import { JobOffer } from "../../../class_objects/job_offers"
 
 import './styles.css';
-import axios from 'axios';
+import UseAuth from '../../hooks/useAtuth';
 
 const theme = createTheme({
     breakpoints: {
@@ -118,7 +122,31 @@ export default function AltCard() {
         },
     ]; */
     
-    const { data, isFetching } = useQuery<JobOffer[]>('job_offers');
+    const { auth } = UseAuth();
+
+    useEffect(() => {
+        const requestIntercept = axiosPrivate.interceptors.request.use(
+            config => {
+                if (config.headers && !config.headers['Authorization']) {
+                    config.headers['Authorization'] = `Bearer ${auth}`;
+                    console.log(auth);
+                }
+                return config;
+            }, error => Promise.reject(error)
+        );
+
+        return () => {
+            axiosPrivate.interceptors.request.eject(requestIntercept)
+        };
+    }, [auth]);
+    
+    const { data, isFetching } = useQuery<JobOffer[]>('job-offers');
+
+    data?.map((jobOffer) => {
+
+        // jobOffer.imgLogo = new File([new Blob([jobOffer.imgLogo as BlobPart], { type: "image/png" })], "Logo Image");
+        jobOffer.openSince = new Date(jobOffer.openSince);
+    })
 
     return (
         <Container className='cards-container-wrapper'>
@@ -131,7 +159,7 @@ export default function AltCard() {
                         direction="row"
                         alignItems="center"
                     >
-                        { isFetching && <p>Carregando...</p> }
+                        { isFetching && <span>Carregando...</span> }
                         {data?.map((jobOffer: JobOffer) => (
                             <Grid item key={ data.indexOf(jobOffer)}>
                                 <Card className='card-item'>

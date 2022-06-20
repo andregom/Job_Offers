@@ -49,8 +49,8 @@ const userLoginRequest = async (userCerdentials: IUser) => {
             withCredentials: false
         }
     );
-    console.log(`${BASE_URL}/${LOGIN_URL}`);
-    console.log(response);
+    // console.log(`${BASE_URL}/${LOGIN_URL}`);
+    // console.log(response);
     return response;
 };
 
