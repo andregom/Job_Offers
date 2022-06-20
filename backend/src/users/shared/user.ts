@@ -12,7 +12,7 @@ export class User
     constructor(
         id: string = "",
         name: string = "",
-        email: email = "andre.oliveira@ufcg.edu.ufcg.br",
+        email: email = "andre.oliveira@asdfasd.ufcg.gov.br",
         password: string = "",
     ) {
         this.id = id;

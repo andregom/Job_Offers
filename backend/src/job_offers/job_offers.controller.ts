@@ -48,7 +48,7 @@ export class JobOffersController {
     async update(@Param('id') id: string, @Body() jobOfferWithUpdatedValues: JobOffer): Promise<JobOffer> {
         jobOfferWithUpdatedValues.id = id;
         try {
-            return await this.jobOfferService.update(id, jobOfferWithUpdatedValues);
+            return this.jobOfferService.update(id, jobOfferWithUpdatedValues);
         } catch (error) {
             console.log(error);
         }

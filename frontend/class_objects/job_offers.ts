@@ -1,12 +1,13 @@
-import { seniority } from "../../shared/interafces/seniority_levels";
-import { workScheduleType } from "../../shared/interafces/work_schedule_type";
-import { IJobOffer } from "../../shared/interafces/job_offers";
-import { status } from "../../shared/interafces/status";
+import { seniority } from "../../shared/interafces/job_offers/seniority_levels";
+import { workScheduleType } from "../../shared/interafces/job_offers/work_schedule_type";
+import { IJobOffer } from "../../shared/interafces/job_offers/job_offers";
+import { ImgLogo } from "../../shared/interafces/job_offers/imageLogo";
+import { status } from "../../shared/interafces/job_offers/status";
 
 export class JobOffer
     implements IJobOffer {
     id: string;
-    imgLogo?: File;
+    imgLogo?: ImgLogo;
     enterprise?: string;
     position: string;
     seniority: seniority;
